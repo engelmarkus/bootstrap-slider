@@ -621,6 +621,12 @@ const windowIsDefined = (typeof window === "object");
 			}
 
 			if (updateSlider === true) {
+				if (Array.isArray(this.options.ticks_labels) && this.options.ticks_labels.length > 0) { 
+					for (i = 0; i < this.options.ticks_labels.length; i++) {        
+						this.tickLabels[i].innerHTML = this.options.ticks_labels[i];
+					}
+				}
+
 				// Reset classes
 				this._removeClass(this.sliderElem, 'slider-horizontal');
 				this._removeClass(this.sliderElem, 'slider-vertical');
@@ -696,14 +702,6 @@ const windowIsDefined = (typeof window === "object");
 			}
 			else {
 				this._state.value = this.options.value;
-			}
-
-			if (updateSlider === true) {
-				if (Array.isArray(this.options.ticks_labels) && this.options.ticks_labels.length > 0) { 
-					for (i = 0; i < this.options.ticks_labels.length; i++) {        
-						this.tickLabels[i].innerHTML = this.options.ticks_labels[i];
-					}
-				}
 			}
 			
 			this.trackLow = sliderTrackLow || this.trackLow;
