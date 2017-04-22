@@ -698,6 +698,14 @@ const windowIsDefined = (typeof window === "object");
 				this._state.value = this.options.value;
 			}
 
+			if (updateSlider === true) {
+				if (Array.isArray(this.options.ticks_labels) && this.options.ticks_labels.length > 0) { 
+					for (i = 0; i < this.options.ticks_labels.length; i++) {        
+						this.tickLabels[i].innerHTML = this.options.ticks_labels[i];
+					}
+				}
+			}
+			
 			this.trackLow = sliderTrackLow || this.trackLow;
 			this.trackSelection = sliderTrackSelection || this.trackSelection;
 			this.trackHigh = sliderTrackHigh || this.trackHigh;
